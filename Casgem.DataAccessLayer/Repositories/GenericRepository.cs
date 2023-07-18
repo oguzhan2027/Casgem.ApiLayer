@@ -19,7 +19,7 @@ namespace Casgem.DataAccessLayer.Repositories
 
         public void Delete(T t)
         {
-            
+            throw new NotImplementedException();
         }
 
         public T GetById(int id)
