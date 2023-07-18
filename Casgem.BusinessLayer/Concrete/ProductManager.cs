@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Casgem.BusinessLayer.Abstract;
+using Casgem.DataAccessLayer.Abstract;
+using Casgem.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,38 @@ using System.Threading.Tasks;
 
 namespace Casgem.BusinessLayer.Concrete
 {
-    internal class ProductManager
+    public class ProductManager : IProductService
     {
+        private readonly IProductDal _productDal;
+        public ProductManager(IProductDal productDal)
+        {
+
+            _productDal = productDal;
+
+        }
+        public Product TGetByID(int id)
+        {
+            return _productDal.GetById( id);
+        }
+
+        public List<Product> TGetList()
+        {
+            return _productDal.GetList();
+        }
+
+        public void TDelete(Product t)
+        {
+            _productDal.Delete(t);
+        }
+
+        public void TInsert(Product t)
+        {
+            _productDal.Insert(t);
+        }
+
+        public void TUpdate(Product t)
+        {
+            _productDal.Update(t);
+        }
     }
 }
