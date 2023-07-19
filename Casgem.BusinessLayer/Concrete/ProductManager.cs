@@ -42,5 +42,10 @@ namespace Casgem.BusinessLayer.Concrete
         {
             _productDal.Update(t);
         }
+
+        public List<Product> TGetProductsWithCategories()
+        {
+            return _productDal.GetProductsWithCategories();
+        }
     }
 }

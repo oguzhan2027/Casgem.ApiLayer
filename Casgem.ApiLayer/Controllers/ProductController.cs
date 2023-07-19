@@ -48,5 +48,12 @@ namespace Casgem.ApiLayer.Controllers
             _productService.TUpdate(product);
             return Ok();
         }
+        
+        [HttpGet("ProductListWithCategories")]
+        public IActionResult ProductListWithCategories()
+        {
+            var values = _productService.TGetProductsWithCategories;
+            return Ok(values);
+        }
     }
 }
